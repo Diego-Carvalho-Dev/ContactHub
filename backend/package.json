@@ -35,9 +35,10 @@
   },
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
-    "start": "ts-node-dev --ignore-watch node_modules src/server.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
-  },  
+    "typeorm": "typeorm-ts-node-commonjs",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
   "keywords": [],
   "author": "DiegoDev",
   "license": "ISC"
