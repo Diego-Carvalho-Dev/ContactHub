@@ -35,6 +35,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "start": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs"
   },  
   "keywords": [],
