@@ -38,12 +38,12 @@ export const ContactCard = ({ elem }) => {
               handleEditModal();
               setSelectContact(elem);
             }}
-          ></button>
+          ><img src={import.meta.env.BASE_URL + 'images/edit.png'} alt="" width={130} height={100} /></button>
           <button
             type="button"
             onClick={() => removeContact(elem.id)}
             className="btDelete"
-          ></button>
+          ><img src={import.meta.env.BASE_URL + 'images/trash.png'} alt="" width={130} height={100} /></button>
         </div>
       </div>
       <div className="areabuttons"></div>
