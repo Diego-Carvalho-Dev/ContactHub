@@ -56,7 +56,7 @@ export const Dashboard = () => {
                 className="btOpenModal"
                 onClick={() => handleModal()}
               >
-                <img src="../../../public/images/adicionar.png" alt="Add" width={40} />
+                <img src={import.meta.env.BASE_URL +"images/adicionar.png"} alt="Add" width={40} />
               </button>
               <button className="btViewProfile" onClick={goProfilePage}>
                 Ver perfil
