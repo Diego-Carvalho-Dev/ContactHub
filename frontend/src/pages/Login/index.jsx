@@ -51,7 +51,7 @@ export const Login = () => {
   return (
     <StyledLoginPage>
       <section className="secLogin">
-        <img src={'../../../public/images/logo.png'} alt="" width={130} height={100} />
+      <img src={import.meta.env.BASE_URL + 'images/logo.png'} alt="" width={130} height={100} />
 
         <form className="formLogin" onSubmit={handleSubmit(submit)} noValidate>
           <label htmlFor="email" className="lbLogin"></label>
