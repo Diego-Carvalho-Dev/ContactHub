@@ -10,7 +10,6 @@ import { EditContactModal } from "../../components/EditContactModal";
 import { ContactsModal } from "../../components/ContactsModal";
 import "react-toastify/dist/ReactToastify.css";
 
-
 export const Dashboard = () => {
   const { client, newLoading } = useContext(AuthContext);
   const {
@@ -18,13 +17,14 @@ export const Dashboard = () => {
     handleModal,
     modalIsEditOpen,
     modalIsContactsOpen,
-    handleContactsModal,
+    handleContactsModal
   } = useContext(ContactContext);
 
   const navigate = useNavigate();
 
   const goLoginClick = () => {
     navigate("/");
+    // Reset client and remove tokens from local storage
     client.client = null;
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@TOKENCLIENT");
@@ -33,30 +33,32 @@ export const Dashboard = () => {
   const goProfilePage = () => {
     navigate("/profile");
   };
+
   return (
     <>
-      {newLoading && <div>Carregando...</div>}
+      {newLoading ? <div>Carregando...</div> : null}
       {client && (
         <StyledHomePage>
           <div className="areaUser">
             <div className="hello">
               <h2 id="name" className="areaWelcome">
-                Olá, {client.client.name}!
+                Bem vindo, {client.client.name}!
               </h2>
             </div>
             <header className="headerHome">
-              <button 
-                type="button"
-                onClick={() => handleModal()}
-              >
-              <img src="src/images/adicionar.png" alt="" width={40}/>
-              </button>
-               <button
+              {/* <button type="button" onClick={handleModal}>
+                <img src="src/images/adicionar.png" alt="" width={40} />
+              </button> */}
+              <button
                 type="button"
                 className="btOpenModal"
-                onClick={() => handleModal()}
+                onClick={handleModal}
               >
-                <img src={import.meta.env.BASE_URL +"images/adicionar.png"} alt="Add" width={40} />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/adicionar.png`}
+                  alt="Add"
+                  width={40}
+                />
               </button>
               <button className="btViewProfile" onClick={goProfilePage}>
                 Ver perfil
@@ -71,7 +73,7 @@ export const Dashboard = () => {
             <div className="areaContact">
               <button
                 className="bTContactHome"
-                onClick={() => handleContactsModal()}
+                onClick={handleContactsModal}
               >
                 Visualizar Contatos
               </button>
@@ -85,7 +87,7 @@ export const Dashboard = () => {
             ) : (
               <div className="areaNoContact">
                 <h1 className="freseNoContact">
-                  Você não ainda possui contatos cadastrados.
+                  Você ainda não possui contatos cadastrados.
                 </h1>
               </div>
             )}
