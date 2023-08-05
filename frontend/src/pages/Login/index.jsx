@@ -7,7 +7,6 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { StyledLoginPage } from "./style";
 import "react-toastify/dist/ReactToastify.css";
 
-
 export const Login = () => {
   const { loading, NewLogin, setLoading } = useContext(AuthContext);
 
@@ -48,14 +47,13 @@ export const Login = () => {
       }
     }, 1000);
   };
-  
+
   return (
     <StyledLoginPage>
       <section className="secLogin">
-      <img src="src/images/logo.png" alt="" width={130} height={100} />
+        <img src="src/images/logo.png" alt="" width={130} height={100} />
         <form className="formLogin" onSubmit={handleSubmit(submit)} noValidate>
-          <label htmlFor="email" className="lbLogin">
-          </label>
+          <label htmlFor="email" className="lbLogin"></label>
           <input
             type="email"
             placeholder="Digite aqui seu email"
@@ -63,8 +61,7 @@ export const Login = () => {
             {...register("email")}
           />
           {errors.email && <p className="areaError">{errors.email.message}</p>}
-          <label htmlFor="password" className="lbLogin">
-          </label>
+          <label htmlFor="password" className="lbLogin"></label>
           <input
             type="password"
             placeholder="Digite aqui sua senha"
@@ -80,13 +77,13 @@ export const Login = () => {
         </form>
         <p className="messageCreateRegister">
           Ainda não tem uma conta ?{" "}
-          <a onClick={goRegisterClick} href="/register" className="btGoToRegisterLink">
-            Criar conta 
-          </a>
+         
+          <button className="btGoToRegisterLink" onClick={goRegisterClick}>
+            Criar conta
+          </button>
         </p>
       </section>
     </StyledLoginPage>
   );
 };
-
 
