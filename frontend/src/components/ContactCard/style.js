@@ -72,14 +72,12 @@ export const StyleCardContact = styled.li`
   }
 
   .btDelete {
-    background-image: url("../../../public/images/trash.png");
     width: 25px; 
     height: 25px; 
     background-size: contain;
   }
 
   .btEdit {
-    background-image: url("../../../public/images/edit.png");
     width: 20px; 
     height: 20px; 
     background-size: contain;
