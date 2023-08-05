@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3000",
-  timeout: 1000,
+  baseURL: "https://contacthub-zx9y.onrender.com/",
+  timeout: 3000,
 });

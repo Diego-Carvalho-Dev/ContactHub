@@ -80,11 +80,13 @@ export const Login = () => {
         </form>
         <p className="messageCreateRegister">
           Ainda não tem uma conta ?{" "}
-          <a href="/register" className="btGoToRegisterLink">
-            Criar conta
+          <a onClick={goRegisterClick} href="/register" className="btGoToRegisterLink">
+            Criar conta 
           </a>
         </p>
       </section>
     </StyledLoginPage>
   );
 };
+
+
