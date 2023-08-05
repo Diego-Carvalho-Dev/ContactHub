@@ -16,17 +16,19 @@ export const StyledLoginPage = styled.div`
 
   .secLogin {
     margin-bottom: 0.625rem;
-    max-width: 33.5rem;  
+    max-width: 33.5rem;
     width: 100%;
     height: 33.8125rem;
     display: flex;
     flex-direction: column;
+    -webkit-box-align: center;
     align-items: center;
+    -webkit-box-pack: center;
     justify-content: center;
     border-radius: 0.5rem;
-    border: 0.1125rem solid #333333;
-    padding: 1.625rem 1.5rem;
-    background-color: #181920;
+    border: 0.1125rem solid rgb(51, 51, 51);
+    background-color: rgb(24, 25, 32);
+    padding: 3%;
   }
 
   .titleLogin {
@@ -61,7 +63,7 @@ export const StyledLoginPage = styled.div`
   .iptLogin {
     max-width: 28.25rem;
     width: 100%;
-    height: 3.813rem;
+    height: 3rem;
     margin-bottom: 0.9375rem;
     padding: 1.25rem 0.9375rem;
     margin-bottom: 0.3125rem;
@@ -95,7 +97,7 @@ export const StyledLoginPage = styled.div`
   .btLogar {
     max-width: 28.25rem;
     width: 100%;
-    height: 3.75rem;
+    height: 3rem;
     margin-top: 1.1875rem;
     margin-bottom: 1.1875rem;
     background-color:rgb(85, 104, 204);

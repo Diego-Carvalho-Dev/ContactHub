@@ -22,7 +22,7 @@ export const StyledRegisterPage = styled.div`
     justify-content: center;
     border-radius: 0.5rem;
     border: 0.1125rem solid #333333;
-    padding: 1.625rem 1.5rem;
+    padding: 3%;
     background-color: #181920;
   }
 
@@ -70,7 +70,7 @@ export const StyledRegisterPage = styled.div`
   .iptRegister {
     max-width: 28.25rem;
     width: 100%;
-    height: 3.813rem;
+    height: 3rem;
     margin-bottom: 0.9375rem;
     padding: 1.25rem 0.9375rem;
     margin-bottom: 0.3125rem;
@@ -103,7 +103,7 @@ export const StyledRegisterPage = styled.div`
   .btRegister {
     max-width: 28.25rem;
     width: 100%;
-    height: 3.75rem;
+    height: 3rem;
     margin-top: 1.1875rem;
     margin-bottom: 1.1875rem;
     background-color:#5568FE;

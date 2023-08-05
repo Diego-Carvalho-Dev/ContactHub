@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/index";
@@ -20,12 +20,15 @@ export const AuthProvider = ({ children }) => {
       const { token, client: clientResponse } = response.data;
       setClient(clientResponse);
       localStorage.setItem("@TOKEN", token);
-      toast.success("Login realizado com sucesso!");
+      toast.success("Login relizado com sucesso!");
 
-      api.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-      
-      // Remove the setTimeout here
-      navigate("/dashboard");
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${response.data.token}`;
+      getClient();
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 3000);
     } catch (error) {
       toast.error("Usuário não encontrado!");
     } finally {
@@ -47,14 +50,12 @@ export const AuthProvider = ({ children }) => {
       setClient(response.data);
     } catch (error) {
       console.error(error);
-      toast.error("Erro ao carregar informações do cliente!");
     } finally {
       setNewLoading(false);
     }
   };
 
   useEffect(() => {
-    // Call getClient only when necessary (e.g., after login)
     getClient();
   }, []);
 
@@ -63,8 +64,10 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       await api.post("/clients", data);
       console.log(data);
-      toast.success("Cadastro realizado com sucesso!");
-      navigate("/"); // Directly navigate, no need for setTimeout
+      toast.success("Cadastro relizado com sucesso!");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
       console.log(error);
       toast.error("Algo deu errado!");

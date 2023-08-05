@@ -43,7 +43,7 @@
         <StyledRegisterPage>
           <section className="secRegister">
             <div className="areaRegisterAndGoToLogin">
-            <img src="src/images/logo.png" alt="" width={130} height={100} />
+            <img src={import.meta.env.BASE_URL + 'images/logo.png'} alt="" width={130} height={100} />
             </div>
             <form
               className="formRegister"
