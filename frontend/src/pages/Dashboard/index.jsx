@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { StyledHomePage } from "./style";
@@ -21,15 +22,6 @@ export const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  if (newLoading) {
-    return <div>Carregando...</div>;
-  }
-
-  if (!client) {
-    navigate("/");
-    return null;
-  }
-
   const goLoginClick = () => {
     navigate("/");
 
@@ -43,53 +35,62 @@ export const Dashboard = () => {
   };
 
   return (
-    <StyledHomePage>
-      <div className="areaUser">
-        <div className="hello">
-          <h2 id="name" className="areaWelcome">
-            Bem vindo, {client.client.name}!
-          </h2>
-        </div>
-        <header className="headerHome">
-          <button type="button" className="btOpenModal" onClick={handleModal}>
-            <img
-              src={`${import.meta.env.BASE_URL}images/adicionar.png`}
-              alt="Add"
-              width={40}
-            />
-          </button>
-          <button className="btViewProfile" onClick={goProfilePage}>
-            Ver perfil
-          </button>
-          <button className="btComeBackLogin" onClick={goLoginClick}>
-            Sair
-          </button>
-        </header>
-      </div>
-
-      <div className="areaInformation">
-        <div className="areaContact">
-          <button className="bTContactHome" onClick={handleContactsModal}>
-            Visualizar Contatos
-          </button>
-        </div>
-        {client.contacts && client.contacts.length > 0 ? (
-          <ul className="ulCardContact">
-            {client.contacts.map((elem) => (
-              <ContactCard key={elem.id} elem={elem} />
-            ))}
-          </ul>
-        ) : (
-          <div className="areaNoContact">
-            <h1 className="freseNoContact">
-              Você ainda não possui contatos cadastrados.
-            </h1>
+    <>
+      {newLoading ? <div>Carregando...</div> : null}
+      {client && (
+        <StyledHomePage>
+          <div className="areaUser">
+            <div className="hello">
+              <h2 id="name" className="areaWelcome">
+                Bem vindo, {client.client.name}!
+              </h2>
+            </div>
+            <header className="headerHome">
+              <button
+                type="button"
+                className="btOpenModal"
+                onClick={handleModal}
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}images/adicionar.png`}
+                  alt="Add"
+                  width={40}
+                />
+              </button>
+              <button className="btViewProfile" onClick={goProfilePage}>
+                Ver perfil
+              </button>
+              <button className="btComeBackLogin" onClick={goLoginClick}>
+                Sair
+              </button>
+            </header>
           </div>
-        )}
-      </div>
-      {modalIsOpen && <RegisterContactModal />}
-      {modalIsEditOpen && <EditContactModal />}
-      {modalIsContactsOpen && <ContactsModal />}
-    </StyledHomePage>
+
+          <div className="areaInformation">
+            <div className="areaContact">
+              <button className="bTContactHome" onClick={handleContactsModal}>
+                Visualizar Contatos
+              </button>
+            </div>
+            {client.contacts && client.contacts.length > 0 ? (
+              <ul className="ulCardContact">
+                {client.contacts.map((elem) => (
+                  <ContactCard key={elem.id} elem={elem} />
+                ))}
+              </ul>
+            ) : (
+              <div className="areaNoContact">
+                <h1 className="freseNoContact">
+                  Você ainda não possui contatos cadastrados.
+                </h1>
+              </div>
+            )}
+          </div>
+          {modalIsOpen && <RegisterContactModal />}
+          {modalIsEditOpen && <EditContactModal />}
+          {modalIsContactsOpen && <ContactsModal />}
+        </StyledHomePage>
+      )}
+    </>
   );
 };
