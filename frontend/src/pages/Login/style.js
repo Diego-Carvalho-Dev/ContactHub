@@ -13,7 +13,6 @@ export const StyledLoginPage = styled.div`
   padding: 0rem 0.625rem 0rem 0.625rem;
   
   // Add the fadeout animation
- 
 
   .secLogin {
     margin-bottom: 0.625rem;
