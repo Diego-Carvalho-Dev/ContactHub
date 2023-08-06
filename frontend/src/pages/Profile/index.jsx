@@ -1,13 +1,12 @@
-import React from "react";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
-import { StyledProfilePage } from "./style";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { EditClientModal } from "../../components/EditClientModal";
-import { ContactContext } from "../../contexts/ContactContext";
-import { DeleteClientModal } from "../../components/DeleteClientModal";
 import moment from "moment";
 import "moment/locale/pt-br";
+import { AuthContext } from "../../contexts/AuthContext";
+import { StyledProfilePage } from "./style";
+import { ContactContext } from "../../contexts/ContactContext";
+import { EditClientModal } from "../../components/EditClientModal";
+import { DeleteClientModal } from "../../components/DeleteClientModal";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Profile = () => {
@@ -25,6 +24,9 @@ export const Profile = () => {
   const goToHome = () => {
     navigate("/dashboard");
   };
+
+  const formattedRegisterDate = moment(client.client.registerDate).format("DD/MM/YYYY HH:mm:ss");
+
   return (
     <>
       {newLoading && <div>Carregando...</div>}
@@ -41,18 +43,7 @@ export const Profile = () => {
             <p className="clientProfile">Phone: {client.client.phone}</p>
             <h3 className="clientProfile">Register Date:</h3>
             <div className="areaDateHourProfile">
-              <p className="clientProfile">
-                Date:{" "}
-                {moment(new Date(client.client.registerDate)).format(
-                  "DD/MM/YYYY"
-                )}
-              </p>
-              <p className="clientProfile">
-                Hour:{" "}
-                {moment(new Date(client.client.registerDate)).format(
-                  "HH:mm:ss"
-                )}
-              </p>
+              <p className="clientProfile">Date: {formattedRegisterDate}</p>
             </div>
             <div className="areaButtonsProfile">
               <button
@@ -67,7 +58,7 @@ export const Profile = () => {
               <button
                 type="button"
                 className="btDeleteProfile"
-                onClick={() => handleDeleteClientModal()}
+                onClick={handleDeleteClientModal}
               >
                 Deletar
               </button>

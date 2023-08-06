@@ -50,7 +50,7 @@ export const EditContactModal = () => {
           <input
             type="text"
             name="fullName"
-            placeholder="Digite seu nome"
+            placeholder="Digite seu nome..."
             className="inputModal"
             {...register("fullName")}
           />
@@ -64,7 +64,7 @@ export const EditContactModal = () => {
           <input
             type="email"
             name="email"
-            placeholder="Digite seu nome"
+            placeholder="Digite seu email.."
             className="inputModal"
             {...register("email")}
           />
@@ -77,7 +77,7 @@ export const EditContactModal = () => {
             type="text"
             mask="(99) 99999-9999"
             name="phone"
-            placeholder="Digite seu nome"
+            placeholder="Digite seu número.."
             className="inputModal"
             {...register("phone")}
           />

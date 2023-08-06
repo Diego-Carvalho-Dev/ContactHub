@@ -93,8 +93,8 @@ export const StyledContainerContactsModal = styled.div`
     margin-bottom: 0.313rem;
     text-align: center;
     font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 1.125rem;
+    font-weight: 600;
+    font-size: 1.5rem;
     color: white;
     margin-right: 275px;
   }
@@ -107,9 +107,10 @@ export const StyledContainerContactsModal = styled.div`
   }
 
   .titleRegisterDateContact {
+    margin-top: 20px;
     .flgbiv .titleRegisterDateContact {
     text-align: center;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     margin-bottom: 0.438rem;
     font-family: Roboto, sans-serif;
     font-weight: 500;
@@ -120,9 +121,9 @@ export const StyledContainerContactsModal = styled.div`
   }
   .dateAndHour {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 1.25rem;
+    flex-direction: column;
   }
 
   .areaNoContactModal {

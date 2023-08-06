@@ -41,7 +41,7 @@ export const Dashboard = () => {
           <div className="areaUser">
             <div className="hello">
               <h2 id="name" className="areaWelcome">
-                Bem vindo, {client.client.name}!
+                Olá, {client.client.name}!
               </h2>
             </div>
             <header className="headerHome">
@@ -53,7 +53,7 @@ export const Dashboard = () => {
                 <img
                   src={`${import.meta.env.BASE_URL}images/adicionar.png`}
                   alt="Add"
-                  width={40}
+                  width={35}
                 />
               </button>
               <button className="btViewProfile" onClick={goProfilePage}>

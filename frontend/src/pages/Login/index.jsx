@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from "./loginSchema";
 import { AuthContext } from "../../contexts/AuthContext";
 import { StyledLoginPage } from "./style";
 import "react-toastify/dist/ReactToastify.css";
 
-export const Login = () => {
-  const { loading, NewLogin, setLoading } = useContext(AuthContext);
+import { loginSchema } from "./loginSchema";
 
+export const Login = React.memo(() => {
+  const { loading, NewLogin, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const goRegisterClick = () => {
@@ -34,15 +34,10 @@ export const Login = () => {
     setLoading(true);
     setTimeout(async () => {
       await NewLogin(data);
-
       if (localStorage.getItem("@TOKEN")) {
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 5000);
+        navigate("/dashboard");
       } else {
-        setTimeout(() => {
-          navigate("/");
-        }, 5000);
+        navigate("/");
         reset();
       }
     }, 1000);
@@ -51,8 +46,12 @@ export const Login = () => {
   return (
     <StyledLoginPage>
       <section className="secLogin">
-      <img src={import.meta.env.BASE_URL + 'images/logo.png'} alt="" width={130} height={100} />
-
+        <img
+          src={import.meta.env.BASE_URL + 'images/logo.png'}
+          alt=""
+          width={130}
+          height={100}
+        />
         <form className="formLogin" onSubmit={handleSubmit(submit)} noValidate>
           <label htmlFor="email" className="lbLogin"></label>
           <input
@@ -78,7 +77,6 @@ export const Login = () => {
         </form>
         <p className="messageCreateRegister">
           Ainda não tem uma conta ?{" "}
-         
           <button className="btGoToRegisterLink" onClick={goRegisterClick}>
             Criar conta
           </button>
@@ -86,5 +84,4 @@ export const Login = () => {
       </section>
     </StyledLoginPage>
   );
-};
-
+});
