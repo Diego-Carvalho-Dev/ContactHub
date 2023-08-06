@@ -57,7 +57,7 @@ export const Dashboard = () => {
                 />
               </button>
               <button className="btViewProfile" onClick={goProfilePage}>
-                Ver perfil
+                Perfil
               </button>
               <button className="btComeBackLogin" onClick={goLoginClick}>
                 Sair
