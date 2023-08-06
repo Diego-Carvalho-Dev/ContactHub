@@ -23,11 +23,9 @@ export const Dashboard = () => {
   const navigate = useNavigate();
 
   const goLoginClick = () => {
-    navigate("/");
-
-    client.client = null;
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@TOKENCLIENT");
+    navigate("/");
   };
 
   const goProfilePage = () => {
