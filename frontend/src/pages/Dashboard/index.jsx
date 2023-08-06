@@ -35,7 +35,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {!newLoading ? <div>Carregando...</div> : null}
+      {newLoading ? <div>Carregando...</div> : null}
       {client && (
         <StyledHomePage>
           <div className="areaUser">
