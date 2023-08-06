@@ -23,9 +23,10 @@ export const Dashboard = () => {
   const navigate = useNavigate();
 
   const goLoginClick = () => {
+    navigate("/");
+    client.client = null;
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@TOKENCLIENT");
-    navigate("/");
   };
 
   const goProfilePage = () => {
@@ -34,7 +35,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {newLoading ? <div>Carregando...</div> : null}
+      {!newLoading ? <div>Carregando...</div> : null}
       {client && (
         <StyledHomePage>
           <div className="areaUser">
