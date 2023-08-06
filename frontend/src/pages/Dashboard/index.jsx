@@ -32,10 +32,10 @@ export const Dashboard = () => {
   const goProfilePage = () => {
     navigate("/profile");
   };
-  
-  {newLoading ? <div>Carregando...</div> : null}
+
   return (
     <>
+      {/* {newLoading ? <div>Carregando...</div> : null} */}
       {client && (
         <StyledHomePage>
           <div className="areaUser">
