@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
     } finally {
-      setNewLoading(true);
+      // setNewLoading(false);
     }
   };
 
