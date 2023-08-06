@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const NewLogin = async (data) => {
     try {
-      setLoading(true);
+      setLoading(false);
       const response = await api.post("/login", data);
       localStorage.setItem("@TOKENCLIENT", response.data.token);
       const { token, client: clientResponse } = response.data;
